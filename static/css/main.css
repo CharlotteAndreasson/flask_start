@@ -1,0 +1,12 @@
+body {
+    background-color: blueviolet;
+}
+
+.menu-item {
+    margin: 5px;
+    color: bisque;
+    text-decoration: none;
+    background-color: black;
+    padding: 5px;
+    border-radius: 5px;
+}
