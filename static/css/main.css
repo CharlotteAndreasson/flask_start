@@ -1,5 +1,5 @@
 body {
-    background-color: blueviolet;
+    background-color: darksalmon;
 }
 
 .menu-item {
@@ -9,4 +9,43 @@ body {
     background-color: black;
     padding: 5px;
     border-radius: 5px;
+}
+
+table {
+    width: 75%;
+    background-color: antiquewhite;
+
+}
+
+th {
+    background: aqua;
+}
+
+tr:nth-child(odd) {
+    background: darkgrey;
+}
+
+tr:nth-child(even) {
+    background: grey;
+    color: white;
+}
+
+.center-content {
+
+}
+
+.circle {
+    margin: 0 auto;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.online {
+    background: chartreuse;
+
+}
+
+.offline {
+    background: crimson;
 }

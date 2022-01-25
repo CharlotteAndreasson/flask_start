@@ -11,7 +11,7 @@ def create_app():
     # Many parts of flask will require us to use a secret key to we create one
     app.config['SECRET_KEY'] = '123secret'
     # Turn off sqlAlchemy warning
-    # app.config['SQLALCHEMY_TRACK_MODIFICATIONS] Om det finns felmeddelande
+    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     # Will configure SQLAlchemy to use SQLite and the file db.sqlite
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
@@ -42,9 +42,9 @@ def create_app():
 
     return app
 
-# if __name__ == '__main__':
-   # dotenv.load_dotenv()
-   # app = create_app()
-   # app.run()
+if __name__ == '__main__':
+   dotenv.load_dotenv()
+   app = create_app()
+   app.run()
 
 
