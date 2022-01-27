@@ -1,5 +1,4 @@
 import datetime
-
 from app import db
 
 message_recv = db.Table('message_recv',
