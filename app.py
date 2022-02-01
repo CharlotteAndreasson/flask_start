@@ -43,6 +43,12 @@ def create_app():
     from blueprints.api import bp_api
     app.register_blueprint(bp_api, url_prefix='/api/v1.0')
 
+    from blueprints.admin import bp_admin
+    app.register_blueprint(bp_admin)
+
+    from blueprints.ajax import bp_ajax
+    app.register_blueprint(bp_ajax)
+
     return app
 
 if __name__ == '__main__':

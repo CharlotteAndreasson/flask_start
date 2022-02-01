@@ -17,3 +17,31 @@ def create_message(title, body, receiver_id):
 
 def get_user_messages():
     return current_user.recv_messages
+
+def get_unread_msg_count():
+    user = current_user
+    msg_count = 0
+    for msg in user.recv_messages:
+        if not msg.read:
+            msg_count += 1
+    return msg_count
+
+def reset_msg_count():
+    from models import Message
+    user = current_user
+    msg = Message
+    for msg in user.recv_messages:
+        msg.read = True
+    from app import db
+    db.session.commit()
+
+    return msg
+
+
+
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, redirect, url_for, request
 from flask_login import logout_user, login_required, current_user
 
-from controllers.message_controller import create_message, get_user_messages
+from controllers.message_controller import create_message, get_user_messages, reset_msg_count
 from controllers.user_controller import get_all_but_current_user, get_user_by_id
 import json
 
@@ -43,6 +43,7 @@ def message_post():
 @bp_user.get('/mailbox')
 def mailbox_get():
     messages = get_user_messages()
+    reset_msg_count()
     return render_template('mailbox.html', messages=messages)
 
 @bp_user.get('/api')
@@ -52,3 +53,11 @@ def api_get():
         'age': 34
     }
     return json.dumps(person)
+
+@bp_user.get('/chat/<user_id>')
+def chat_get(user_id):
+    chat_server_ip = request.remote_addr
+    user_id = int(user_id)
+    chat_with = get_user_by_id(user_id)
+    return render_template('chat.html', ip=chat_server_ip, chat_user=chat_with)
+
